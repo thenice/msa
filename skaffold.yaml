@@ -1,0 +1,24 @@
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: msa
+build:
+  artifacts:
+  - image: domain
+    context: domain
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - domain/deployment.yaml
+    - k8s/kafka-deployment.yaml
+    - k8s/kafka-service.yaml
+    - k8s/mongo-db-deployment.yaml
+    - k8s/mongo_db-service.yaml
+    - k8s/mongodb-data-container-persistentvolumeclaim.yaml
+    - k8s/service-api-deployment.yaml
+    - k8s/service-api-service.yaml
+    - k8s/service-consumer-deployment.yaml
+    - k8s/zookeeper-deployment.yaml
+    - k8s/zookeeper-service.yaml

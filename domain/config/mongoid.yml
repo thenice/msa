@@ -1,0 +1,10 @@
+development:
+  clients:
+    default:
+      database: app
+      hosts:
+        - mongo:27017
+      options:
+        user: mongo
+        password: mongo
+        auth_source: admin

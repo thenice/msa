@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: service-consumer
+  name: service-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: service-consumer
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: service-consumer
+    spec:
+      containers:
+        - args:
+            - ruby
+            - consumer.rb
+          image: thenice/domain
+          name: service-consumer
+          resources: {}
+      restartPolicy: Always
+status: {}
