@@ -4,14 +4,17 @@ metadata:
   name: msa
 build:
   artifacts:
-  - image: domain
+  - image: thenice/domain
     context: domain
     docker:
       dockerfile: Dockerfile
+    sync:
+      infer:
+        - '**/*.rb'
+      
 deploy:
   kubectl:
     manifests:
-    - domain/deployment.yaml
     - k8s/kafka-deployment.yaml
     - k8s/kafka-service.yaml
     - k8s/mongo-db-deployment.yaml

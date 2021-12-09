@@ -1,19 +1,10 @@
 include Broker
 
-get '/:id' do
-    puts "=>> iddd"
+post '/my_first_document' do
+    puts "Create document endpoint called."
+    deliver("new-account", "body")
 end
 
-post '/new' do
-    puts "Nuu acocunt!"
-    deliver("new-account", "weee")
-    puts "Nuu acocunt!"
-end
-
-post '/add_value/:account_id/:amount' do
-    deliver("add-value", {account_id: params[:account_id], amount: params[:amount]}.to_json)
-end
-
-post '/deduct_value/:account_id/:amount' do
-    deliver("deduct-value", {account_id: params[:account_id], amount: params[:amount]}.to_json)
+get '/we-did-it' do
+    "yeahhhh"
 end

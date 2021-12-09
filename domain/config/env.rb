@@ -1,5 +1,9 @@
 require 'json'
 
+# Setup Logger
+require 'logger'
+$stdout.sync = true
+
 # Mongo/Mongoid
 require 'mongoid'
 Mongoid.load!('./config//mongoid.yml', environment="development")
