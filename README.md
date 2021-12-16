@@ -1,7 +1,7 @@
 # MSA
 An example of a microservice architecture using Kubernetes and Skaffold. Built with Sinatra, Mongo, and Kafka
 
-# To run:
+# To run
 
 1. Install Docker Desktop.
 https://www.docker.com/products/docker-desktop
