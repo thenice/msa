@@ -1,7 +1,6 @@
 require 'json'
 
-# Setup Logger
-require 'logger'
+# do not batch stdout
 $stdout.sync = true
 
 # Mongo/Mongoid

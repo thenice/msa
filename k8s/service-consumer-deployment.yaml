@@ -15,6 +15,11 @@ spec:
       labels:
         io.kompose.service: service-consumer
     spec:
+      initContainers:
+        - name: wait-for-kafka
+          image: thenice/domain
+          command: ["/bin/sh","-c"]
+          args: ["sleep 20"]
       containers:
         - args:
             - rerun

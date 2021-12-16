@@ -6,7 +6,7 @@ module Broker
         @@kafka ||= Kafka.new([KAFKA_CONFIG[:hosts]],
             client_id: KAFKA_CONFIG[:client_id])
     end
-
+    
     def consumer
         @@consumer ||= kafka.consumer(
 
@@ -39,11 +39,11 @@ module Broker
     def start_listening
         #register listeners
         @@events.keys.each do |topic|
-            puts "Registering listener for: #{topic}"
+            logger.info "Registering listener: #{topic}"
             consumer.subscribe(topic, start_from_beginning: false)
         end
 
-        # start lisetning
+        # map topics to Procs
         consumer.each_message do |message|
             # todo: error handling
             @@events[message.topic].call(message.value) # call proc defined in the consumer

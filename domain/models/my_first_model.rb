@@ -4,8 +4,4 @@ class MyFirstModel
     field :price, type: Float, default: 0
     field :name, type: String
 
-    def say_hi
-        puts "hi"
-    end
-
 end

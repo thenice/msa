@@ -1,10 +1,6 @@
 include Broker
 
 post '/my_first_document' do
-    puts "Create document endpoint called."
+    logger.info("this is a test")
     deliver("new-account", "body")
-end
-
-get '/we-did-it' do
-    "yeahhhh"
 end
