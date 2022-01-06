@@ -30,6 +30,8 @@ jobs:
       uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       with:
         ruby-version: ${{ matrix.ruby-version }}
-        run: cd domain;bundle install
+        working-directory: domain
+        bundler-cache: true
     - name: Run tests
+      working-directory: domain
       run: cd domain;rspec tests/*
