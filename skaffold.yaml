@@ -3,6 +3,8 @@ kind: Config
 metadata:
   name: msa
 build:
+  tagPolicy:
+    sha256: {}
   artifacts:
   - image: thenice/domain
     context: domain

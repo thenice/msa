@@ -9,4 +9,7 @@ listen_for "new-account" do |body|
     x.save
 end
 
+listen_for "hello" do |body|
+    logger.info(body)
+end
 start_listening
