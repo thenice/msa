@@ -16,8 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
+      working-directory: domain
       run: docker build . --file Dockerfile --tag domain:$(date +%s)
     - name: login to Docker Hub
+      working-directory: domain
       run: docker login --username thenice fae0058b-b6ea-4b72-a264-fbb6613a0ab2
     - name: Push the image
+      working-directory: domain
       run: docker push domain
