@@ -11,11 +11,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    working-directory: domain
+    
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      working-directory: domain
-      run: docker login --username thenice fae0058b-b6ea-4b72-a264-fbb6613a0ab2
       run: docker build . --file Dockerfile --tag domain:$(date +%s)
-      run: docker push
+    - name: login to Docker Hub
+      run: docker login --username thenice fae0058b-b6ea-4b72-a264-fbb6613a0ab2
+    - name: Push the image
+      run: docker push domain
