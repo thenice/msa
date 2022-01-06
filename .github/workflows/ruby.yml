@@ -34,4 +34,4 @@ jobs:
         bundler-cache: true
     - name: Run tests
       working-directory: domain
-      run: cd domain;rspec tests/*
+      run: rspec tests/*
